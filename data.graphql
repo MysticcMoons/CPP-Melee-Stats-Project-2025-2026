@@ -1,0 +1,50 @@
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+#fetches ONE player
+type Query {
+    getAllPlayers: [Player]
+    getPlayer( id: ID!)
+}
+
+
+#fetches ALL Players
+#type Query {
+#    getAllPlayers: [Player]
+# }
+
+
+#Can change info about player
+type Mutation {
+    createPlayer: Player
+    updatePlayer: Player
+    deletePlayer: Player
+}
+
+#think of this as a way to tell what the Player entails
+type Player {
+    id: ID!
+    playerName: String
+    character: String
+    numOfEvents: Int 
+    numOfWins: Int
+    numOfLoss: Int
+}
+
+type Character {
+    id: ID!
+    characterName: String
+    numOfWins: Int
+    numOfLoss: Int
+}
+
+
+input CreatePlayerInput {
+    playerName: String!
+    character: String!
+    numOfEvents: Int
+    numOfLoss: Int
+    numOfWins: Int
+}
